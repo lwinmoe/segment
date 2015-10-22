@@ -1,0 +1,2 @@
+define words [these|are|burmese|words|separated|by|pipe];
+regex words @> "|" ... ;
