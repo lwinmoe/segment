@@ -19,15 +19,15 @@ Compile with the command in the working directory:
 
 ## How to compile a new finite state automata with a different word list
 
-Create a file called ``burmese.txt''. There is a ``template.txt'' in the folder. Here is the content:
+Create a file called ``burmese.txt``. There is a ``template.txt`` in the folder. Here is the content:
 
     define words [these|are|burmese|words|separated|by|pipe];
     regex words @> "|" ... ;
 
-Your word list will go in the first line. Words are separated by "|". You can also replace the separator "|" from the regular expression with anything you like. And then you will have to compile the FSA using ``foma'' command:
+Your word list will go in the first line. Words are separated by "|". You can also replace the separator "|" from the regular expression with anything you like. And then you will have to compile the FSA using ``foma`` command:
 
     foma -l burmese.txt
 
-You will then be in ``foma'' command prompt. You can save the FSA by:
+You will then be in ``foma`` command prompt. You can save the FSA by:
 
     save stack burmese.foma
