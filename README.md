@@ -31,3 +31,7 @@ Your word list will go in the first line. Words are separated by "|". You can al
 You will then be in ``foma`` command prompt. You can save the FSA by:
 
     save stack burmese.foma
+
+## For other languages
+
+If you have a word list, you can generate finite state automata using [Foma library](https://code.google.com/p/foma/) and use it with this tool.
