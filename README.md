@@ -15,7 +15,7 @@ Compile with the command in the working directory:
 
 ## How to run
 
-    ./segment burmese.foma 'ကလေးများကျောင်းသို့သွားကြသည်။'
+    ./segment burmese.fst 'ကလေးများကျောင်းသို့သွားကြသည်။'
 
 ## How to compile a new finite state automata with a different word list
 
@@ -30,7 +30,7 @@ Your word list will go in the first line. Words are separated by "|". You can al
 
 You will then be in ``foma`` command prompt. You can save the FSA by:
 
-    save stack burmese.foma
+    save stack burmese.fst
 
 ## For other languages
 
