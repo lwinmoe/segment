@@ -30,7 +30,6 @@ with open(inputF, 'r') as f:
         print("Sentence:", line)
 
         ####################### using segmenter ###################################
-        '''
         output = check_output(["./segment" + " burmese.fst '" + line + "'"], shell=True)
         outStr = output.decode('utf-8')
         print(outStr)
@@ -38,12 +37,11 @@ with open(inputF, 'r') as f:
         outStr = outStr.replace("||", "|")
         outStr = outStr.replace("\n", '')
         outItems = outStr.split("|")
-        '''
         ####################### end using segmenter
 
         ####################### baseline #########################
-        line = line.replace("\n", "")
-        outItems = line.split(" ")
+        #line = line.replace("\n", "")
+        #outItems = line.split(" ")
         ####################### end baseline #####################
 
         goldStr = gold_lines[cnt]
