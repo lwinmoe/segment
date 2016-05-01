@@ -62,15 +62,15 @@ with open(inputF, 'r') as f:
             print("Segmentation:", outItems)
             print("Segmented items cnt:", len(outItems))
             print("Correct items cnt:", len(correctItems))
-            recall = len(outItems) / len(goldItems) * 100
+            recall = len(correctItems) / len(goldItems) * 100
             print("Recall:", recall)
-            precision = len(correctItems) / len(goldItems) * 100
+            precision = len(correctItems) / len(outItems) * 100
             print("Precision:", precision)
             print("===========================\n")
         cnt += 1
 
-recall = round((totalOut / totalGold) * 100, 2)
-precision = round((totalCorrect / totalGold) * 100, 2)
+recall = round((totalCorrect / totalGold) * 100, 2)
+precision = round((totalCorrect / totalOut) * 100, 2)
 print("TotalOut:", totalOut)
 print("totalGold:", totalGold)
 print("totalCorrect:", totalCorrect)
