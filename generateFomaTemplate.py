@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 words = []
-inputF = "burmese-word-list.txt"
-outF = "burmese.scr"
+inputF = "chinese-word-list.txt"
+outF = "chinese.scr"
 
 with open(inputF, 'r') as f:
     for line in f:
@@ -19,8 +19,8 @@ wordsStr = "|".join(words)
 
 with open(outF, 'w') as out:
     out.write("define words [" + wordsStr + "];\n")
-    out.write('regex words @> "|" ... ;\n')
-    out.write('save stack burmese.fst\n')
-    out.write('print dot > burmese.dot\n')
+    out.write('regex words @> "|" ... "|";\n')
+    out.write('save stack chinese.fst\n')
+    #out.write('print dot > burmese.dot\n')
 
 
