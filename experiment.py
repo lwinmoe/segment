@@ -41,7 +41,7 @@ with open(inputF, 'r') as f:
         outStr = outStr.replace("။", "|။")
         outStr = re.sub(r"(?P<punc>[\(\)\-\"\'])","|\g<punc>|", outStr)
         outStr = re.sub(r"(?P<eng>[0-9a-zA-Z]+)","|\g<eng>|", outStr)
-        outStr = re.sub(r"(?P<bur_digits>[၀-၉]+)","|\g<bur_digits>|", outStr)
+        outStr = re.sub(r"(?P<bur_digits>[၀-၉\.]+)","|\g<bur_digits>|", outStr)
         outStr = outStr.replace("||", "|")
         outStr = outStr.replace("\n", '')
         outItems = outStr.split("|")
