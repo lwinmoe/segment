@@ -19,19 +19,19 @@ Compile with the command in the working directory:
 
 ## How to compile a new finite state automata with a different word list
 
-Create a file called ``burmese.txt``. There is a ``template.txt`` in the folder. Here is the content:
+Create a file called ``burmese.scr``. There is a ``template.txt`` in the folder. Here is the content:
 
     define words [these|are|burmese|words|separated|by|pipe];
     regex words @> "|" ... ;
+    save stack burmese.fst
 
 Your word list will go in the first line. Words are separated by "|". You can also replace the separator "|" from the regular expression with anything you like. And then you will have to compile the FSA using ``foma`` command:
 
-    foma -l burmese.txt
+    foma -f burmese.scr
 
-You will then be in ``foma`` command prompt. You can save the FSA by:
+### Using Foma script generator to create burmese.scr
 
-    save stack burmese.fst
+If you have a word list, you can generate a Foma script using `generateFomaTemplate.py`. Your word list will be in a text file with each word in separate lines. If the file name of the word list is `burmese.txt`, the following commands will create `burmese.scr` and then compile it into `burmese.fst`:
 
-## For other languages
-
-If you have a word list, you can generate finite state automata using [Foma library](https://code.google.com/p/foma/) and use it with this tool.
+    python3 generateFomaTemplate.py burmese.txt burmese.scr
+    foma -f burmese.scr
