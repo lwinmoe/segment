@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 import os
 import re
-from subprocess import call, check_output
+#from subprocess import call, check_output
+import subprocess
 
 cnt = 0
 MAX = 5
@@ -33,8 +34,25 @@ with open(inputF, 'r') as f:
         print("Sentence:", line)
 
         ####################### using segmenter ###################################
-        output = check_output(["./segment" + " burmese.fst '" + line + "'"], shell=True)
-        outStr = output.decode('utf-8')
+        #output = check_output(["./segment" + " burmese.fst '" + line + "'"], shell=True)
+        command = ["./segment", "burmese.fst", line]
+
+        try:
+            result = subprocess.run(command, check=True, capture_output=True, text=True)
+            print("Command output:")
+            print(result.stdout)
+            if result.stderr:
+                print("Command error:")
+                print(result.stderr)
+        except subprocess.CalledProcessError as e:
+            print(f"Error running command: {e}")
+            print(f"Stderr: {e.stderr}")
+        except FileNotFoundError:
+            print(f"Error: The file './segment' or 'burmese.fst' was not found.")
+
+
+        #outStr = output.decode('utf-8')
+        outStr = result.stdout
         print(outStr)
         outStr = outStr.replace(" ", "|")
         outStr = outStr.replace("၊", "|၊|")
